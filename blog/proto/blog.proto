@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package blog;
 
-option go_package = "github.com/nikzayn/blog/proto";
+option go_package = "github.com/nikzayn/blog-grpc/blog/proto";
 
 import "google/protobuf/empty.proto";
 
