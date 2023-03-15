@@ -12,14 +12,14 @@ import (
 )
 
 var collection *mongo.Collection
-var addr string = "0.0.00:50051"
+var addr string = "0.0.0.0:50051"
 
 type Server struct {
 	pb.BlogServiceServer
 }
 
 func main() {
-	client, err := mongo.NewClient(options.Client().ApplyURI("mongodb://root:root@localhost:27017/"))
+	client, err := mongo.NewClient(options.Client().ApplyURI("mongodb://root:nikhil123@localhost:27017/"))
 
 	if err != nil {
 		log.Fatal(err)
@@ -38,7 +38,7 @@ func main() {
 		log.Fatalf("Failed to listen on: %v\n", err)
 	}
 
-	log.Printf("Listening on %s\n", err)
+	log.Printf("Listening on %s\n", addr)
 
 	s := grpc.NewServer()
 	pb.RegisterBlogServiceServer(s, &Server{})
