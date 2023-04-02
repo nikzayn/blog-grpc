@@ -37,7 +37,7 @@ func (s *Server) UpdateBlog(ctx context.Context, in *pb.Blog) (*emptypb.Empty, e
 	)
 	if err != nil {
 		return nil, status.Errorf(
-			codes.NotFound,
+			codes.Internal,
 			"Could not update",
 		)
 	}
