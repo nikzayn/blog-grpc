@@ -13,6 +13,10 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix: 
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+
     steps:
     - uses: actions/checkout@v3
 
@@ -26,3 +30,11 @@ jobs:
 
     - name: Test
       run: go test -v ./...
+  
+  publish:
+      runs-on: ubuntu-latest
+      strategy:
+        matrix: 
+          os: [ubuntu-latest, windows-latest, macOS-latest]
+      needs: build
+
