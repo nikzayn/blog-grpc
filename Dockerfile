@@ -6,10 +6,10 @@ COPY go.mod go.sum ./
 
 RUN go mod download
 
-COPY . /app/
+COPY *.go ./
 
-RUN go build -o /blog-grpc
+RUN go build -o /blog-grpc/bin/blog
 
 EXPOSE 8080
 
-CMD [ "/blog-grpc" ]
+CMD [ "/blog-grpc/bin/blog" ]
