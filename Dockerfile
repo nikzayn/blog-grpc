@@ -8,8 +8,4 @@ RUN go mod download
 
 COPY . .
 
-RUN go build -o /blog-grpc/bin/blog
-
 EXPOSE 8080
-
-CMD [ "/blog-grpc/bin/blog" ]
